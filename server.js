@@ -20,8 +20,10 @@ app.use('/api/auth', authRoutes);  // Auth routes for login and register
 app.use('/api/watchlist', watchlistRouter);
 app.use('/api/watched', watchedRoute);
 
+const MONGODB_URI = process.env.MONGODB_URI || 'your-atlas-connection-string-here';
+
 // Connect to MongoDB
-mongoose.connect(process.env.MONGOO_URI, {
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
